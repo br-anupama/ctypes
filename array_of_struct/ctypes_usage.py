@@ -9,7 +9,8 @@ import socket
 
 
 def fill_data(examp, i):
-    examp.length = i
+    #examp.length = i
+    setattr(examp, 'length', i)
     values = ["anu", "anupa", "anupama"]
     exs = []
     ls = []
@@ -17,22 +18,27 @@ def fill_data(examp, i):
         v = ctypes.create_string_buffer(10)
         v.value = val + str(i)
         ls.append(v)
-    examp.names = ((ctypes.c_char*10)*3)(*ls)
-    examp.sizes = (ctypes.c_int*4)(*[i, i+1, i+2, i+3])
+    #examp.names = ((ctypes.c_char*10)*3)(*ls)
+    #examp.sizes = (ctypes.c_int*4)(*[i, i+1, i+2, i+3])
+    setattr( examp, 'names', ((ctypes.c_char*10)*3)(*ls) )
+    setattr( examp, 'sizes', (ctypes.c_int*4)(*[i, i+1, i+2, i+3]) )
 
 
 print "1---------------1"
 obj = dummy.Classes()
-obj.paper_weight = 1.34
+#obj.paper_weight = 1.34
+setattr( obj, 'paper_weight', 1.34)
 
 exs = []
 for i in range(5):
     ex = dummy.Example()
     fill_data(ex, i)
     exs.append(ex)
-obj.num = 101
+#obj.num = 101
+setattr( obj, 'num' ,101 )
 
-obj.EX = (dummy.Example*5)(*exs)
+#obj.EX = (dummy.Example*5)(*exs)
+setattr( obj, 'EX', (dummy.Example*5)(*exs) )
 
 print "paper weight ", obj.paper_weight
 print "printing Example data ...."

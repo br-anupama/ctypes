@@ -18,13 +18,13 @@ void display(struct Classes cl){
 	printf("===================== \n");
 	printf("length %d \n", cl.EX[i].length);
 	printf("names \n");
-	for(int i = 0; i < 3; i++){
-		printf("%s \n", cl.EX[i].names[i]);
+	for(int j = 0; j < 3; j++){
+		printf("%s \n", cl.EX[i].names[j]);
 	}
 
 	printf("sizes \n");
-	for(int i = 0; i < 4; i++){
-		printf("%d \n", cl.EX[i].sizes[i]);
+	for(int k = 0; k < 4; k++){
+		printf("%d \n", cl.EX[i].sizes[k]);
 	}	
      }
      printf("num = %d \n", cl.num);
