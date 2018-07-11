@@ -3,7 +3,7 @@
 
 import ctypes
 import dummy
-
+import socket
 
 
 obj = dummy.Example()
@@ -32,3 +32,9 @@ obj.names = ((ctypes.c_char*10)*3)(*ls)
 print "1---------------1"
 for i in range(3):
      print obj.names[i].value
+
+
+s = socket.socket()
+s.connect(('localhost', 8080))
+s.send(obj)
+s.close()
