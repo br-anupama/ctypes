@@ -39,4 +39,9 @@ for i in range(3):
 s = socket.socket()
 s.connect(('localhost', 8080))
 s.send(obj)
+buff = s.recv(ctypes.sizeof(dummy.Good))
+gd = dummy.Good.from_buffer_copy(buff)
+print "GOOD rate ", gd.rate
+print "GOOD Validity ", gd.validity
 s.close()
+
